@@ -2,11 +2,11 @@ package br.com.joojlog.controller;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -80,6 +80,21 @@ public class JogoController {
 			jogoRep.deleteById(id);
 			
 			return ResponseEntity.noContent().build();
+		}catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+		}
+	}
+	
+	@GetMapping("/jogos/{id}")
+	public ResponseEntity<Optional<Jogo>> burcarPorId(@PathVariable Long id){
+		try {
+			if(!jogoRep.existsById(id)) {
+				return ResponseEntity.notFound().build();
+			}
+			
+			Optional<Jogo> jogo = jogoRep.findById(id);
+			
+			return ResponseEntity.ok(jogo);
 		}catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
