@@ -25,6 +25,16 @@ public class JogoController {
 	@Autowired
 	JogoService jogoRep;
 
+	@GetMapping("/jogos")
+	public ResponseEntity listar() {
+		try {
+			return ResponseEntity.ok(jogoRep.findAll());
+		}catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+		}
+		
+	}
+			
 	@PostMapping("/jogos")
 	public ResponseEntity<Jogo> criar(@RequestBody Jogo jogo) throws URISyntaxException{
 		try {
@@ -40,4 +50,6 @@ public class JogoController {
 			return ResponseEntity.badRequest().build();
 		}
 	}
+	
+	
 }
