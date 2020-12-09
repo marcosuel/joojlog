@@ -18,6 +18,8 @@ public class Jogo {
 	private String nome;
 	@NotBlank
 	private String descricao;
+	@NotBlank
+	private String imgUrl;
 	private int nt_comunidade;
 	private int nt_critica;
 	
@@ -45,6 +47,14 @@ public class Jogo {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 
 	public int getNt_comunidade() {
@@ -88,6 +98,4 @@ public class Jogo {
 		return true;
 	}
 
-
-	
 }
