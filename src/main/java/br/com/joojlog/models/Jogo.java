@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "jogo")
@@ -20,7 +21,9 @@ public class Jogo {
 	private String descricao;
 	@NotBlank
 	private String imgUrl;
+	@NotNull
 	private int nt_comunidade;
+	@NotNull
 	private int nt_critica;
 	
 	public Jogo() {}
