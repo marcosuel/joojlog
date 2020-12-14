@@ -4,6 +4,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -52,7 +54,7 @@ public class JogoController {
 	}
 			
 	@PostMapping("/jogos")
-	public ResponseEntity<Jogo> criar(@RequestBody Jogo jogo) throws URISyntaxException{
+	public ResponseEntity<Jogo> criar(@Valid @RequestBody Jogo jogo) throws URISyntaxException{
 		try {
 			Jogo novoJogo = jogoRep.save(jogo);
 			
@@ -68,7 +70,7 @@ public class JogoController {
 	}
 	
 	@PutMapping("/jogos/{id}")
-	public ResponseEntity<Jogo> atualizar(@PathVariable Long id, @RequestBody Jogo jogo){
+	public ResponseEntity<Jogo> atualizar(@PathVariable Long id, @Valid @RequestBody Jogo jogo){
 		try {
 			if(!jogoRep.existsById(id)) {
 				return ResponseEntity.notFound().build();
