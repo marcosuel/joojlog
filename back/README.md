@@ -1,0 +1,24 @@
+# JooJLog
+#### Api Requisições
+
+**Get**: */api/jogos*
+-Lista todos os jogos
+
+**Get**: */api/jogos/search={nome do jogo}*
+-Lista jogos quem tem o parâmetro no nome.
+
+**Post**: */api/jogos*
+-Adiciona um novo jogo
+
+**Put**: */api/jogos/{id}*
+-Atualiza o jogo
+
+**Delete**: */api/jogos/{id}*
+-Apaga o jogo
+
+#### Instalação
+- Crie uma database chamada joojlog.
+
+- **Windows**: Com o cmd, entre na pasta "back" e digite:
+>mvnw spring-boot:run
+- **Linux**: Mesmo passo do windows, mas utilize 'mvn' no lugar de 'mvnw'
