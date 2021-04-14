@@ -18,4 +18,5 @@
 
 #### Instalação
 - Crie uma database chamada joojlog.
+- No terminal, digite:
 >mvnw spring-boot:run
