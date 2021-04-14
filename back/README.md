@@ -18,7 +18,4 @@
 
 #### Instalação
 - Crie uma database chamada joojlog.
-
-- **Windows**: Com o cmd, entre na pasta "back" e digite:
 >mvnw spring-boot:run
-- **Linux**: Mesmo passo do windows, mas utilize 'mvn' no lugar de 'mvnw'
